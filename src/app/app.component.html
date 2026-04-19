@@ -1,15 +1,14 @@
-<div style="text-align:center; margin-top:50px; font-family: Arial;">
+<div style="text-align:center; margin-top:40px;">
+
   <h1>KB Fashion House 👗</h1>
 
-  <p>Angular Frontend Connected to Spring Boot Backend</p>
+  <nav>
+    <a routerLink="/login">Login</a> |
+    <a routerLink="/register">Register</a>
+  </nav>
 
-  <button (click)="getHomeMessage()" style="padding:10px 20px; cursor:pointer;">
-    Call Backend API
-  </button>
+  <hr />
 
-  <h3 style="margin-top:20px;">Response:</h3>
+  <router-outlet></router-outlet>
 
-  <div style="color: green; font-weight: bold;">
-    {{ message }}
-  </div>
 </div>
