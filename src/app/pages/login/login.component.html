@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container">
+
+  <h2>Login</h2>
+
+  <input type="text"
+         placeholder="Email or Mobile"
+         [(ngModel)]="emailOrMobile" />
+
+  <br><br>
+
+  <input type="password"
+         placeholder="Password"
+         [(ngModel)]="password" />
+
+  <br><br>
+
+  <button (click)="login()">Login</button>
+
+</div>
