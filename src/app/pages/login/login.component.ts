@@ -22,17 +22,20 @@ export class LoginComponent {
   ) {}
 
   login() {
-    this.api.login({
-      emailOrMobile: this.emailOrMobile,
-      password: this.password
-    }).subscribe({
-      next: () => {
-        alert('Login successful');
-        this.router.navigate(['/home']);
-      },
-      error: () => {
-        alert('Invalid credentials');
-      }
-    });
-  }
+  const request = {
+    email: this.email,
+    password: this.password
+  };
+
+  this.api.login(request).subscribe({
+    next: (res) => {
+      alert('Login successful');
+      console.log(res);
+    },
+    error: (err) => {
+      alert('Invalid credentials');
+      console.log(err);
+    }
+  });
 }
+  }
