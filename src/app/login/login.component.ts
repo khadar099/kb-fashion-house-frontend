@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   login() {
     this.api.login({
@@ -21,6 +25,9 @@ export class LoginComponent {
       next: (res) => {
         alert('Login successful');
         console.log(res);
+
+        // 👉 redirect after login
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         alert('Invalid credentials');
