@@ -11,15 +11,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  login(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/login`, data);
-  }
-
-  register(data: any): Observable<any> {
+  register(data: any) {
     return this.http.post(`${this.baseUrl}/auth/register`, data);
   }
 
-  getProducts(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/products`);
+  login(data: any) {
+    return this.http.post(`${this.baseUrl}/auth/login`, data);
   }
 }
