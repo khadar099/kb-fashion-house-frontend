@@ -24,9 +24,17 @@ export class RegisterComponent {
       password: this.password
     };
 
+    console.log('SENDING REQUEST:', request);
+
     this.api.register(request).subscribe({
-      next: () => alert('Registered successfully'),
-      error: () => alert('Registration failed')
+      next: (res) => {
+        console.log('SUCCESS:', res);
+        alert('Registration successful');
+      },
+      error: (err) => {
+        console.log('ERROR FULL:', err);
+        alert(err?.error?.message || 'Registration failed');
+      }
     });
   }
 }
