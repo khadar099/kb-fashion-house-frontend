@@ -23,7 +23,7 @@ export class RegisterComponent {
 
     this.api.register(request).subscribe({
       next: (res) => {
-        alert('User registered successfully');
+        alert('Registered successfully');
         console.log(res);
       },
       error: (err) => {
