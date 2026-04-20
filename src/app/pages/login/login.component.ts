@@ -12,10 +12,14 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
   emailOrMobile = '';
   password = '';
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   login() {
     this.api.login({
@@ -26,7 +30,9 @@ export class LoginComponent {
         alert('Login successful');
         this.router.navigate(['/home']);
       },
-      error: () => alert('Login failed')
+      error: () => {
+        alert('Invalid credentials');
+      }
     });
   }
 }
