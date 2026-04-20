@@ -1,31 +1,12 @@
-<div class="container">
+<h2>Register</h2>
 
-  <h2>Register</h2>
+<input type="text" placeholder="Email" [(ngModel)]="email" />
+<br><br>
 
-  <input type="text"
-         placeholder="Email"
-         [(ngModel)]="email" />
+<input type="text" placeholder="Mobile" [(ngModel)]="mobile" />
+<br><br>
 
-  <br><br>
+<input type="password" placeholder="Password" [(ngModel)]="password" />
+<br><br>
 
-  <input type="text"
-         placeholder="Mobile"
-         [(ngModel)]="mobile" />
-
-  <br><br>
-
-  <input type="password"
-         placeholder="Password"
-         [(ngModel)]="password" />
-
-  <br><br>
-
-  <input type="password"
-         placeholder="Confirm Password"
-         [(ngModel)]="confirmPassword" />
-
-  <br><br>
-
-  <button (click)="register()">Register</button>
-
-</div>
+<button (click)="register()">Register</button>
