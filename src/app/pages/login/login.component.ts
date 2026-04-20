@@ -4,11 +4,31 @@ import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
+  emailOrMobile = '';
+  password = '';
+
+  constructor(
+    private api: ApiService,
+    private router: Router
+  ) {}
+
+  login() {
+    this.api.login({
+      emailOrMobile: this.emailOrMobile,
+      password: this.password
+    }).subscribe({
+      next: () => {
+        alert('Login successful');
+        this.router.navigate(['/home']);
+      },
+      error: () => {
+        alert('Invalid credentials');
+      }
+    });
+  }
 }
