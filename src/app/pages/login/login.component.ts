@@ -8,14 +8,14 @@ import { ApiService } from '../../services/api.service';
 })
 export class LoginComponent {
 
-  emailOrMobile: string = '';   // ✅ MUST EXIST
+  emailOrMobile: string = '';
   password: string = '';
 
   constructor(private api: ApiService) {}
 
   login() {
     const request = {
-      emailOrMobile: this.emailOrMobile,   // ✅ MATCH API SERVICE
+      emailOrMobile: this.emailOrMobile,
       password: this.password
     };
 
