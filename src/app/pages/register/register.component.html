@@ -1,10 +1,24 @@
-<div class="register-container">
+<div class="container">
 
   <h2>Register</h2>
 
-  <input type="text" placeholder="Email" [(ngModel)]="email" />
+  <input type="text"
+         placeholder="Email or Mobile"
+         [(ngModel)]="emailOrMobile" />
 
-  <input type="password" placeholder="Password" [(ngModel)]="password" />
+  <br><br>
+
+  <input type="password"
+         placeholder="Password"
+         [(ngModel)]="password" />
+
+  <br><br>
+
+  <input type="password"
+         placeholder="Confirm Password"
+         [(ngModel)]="confirmPassword" />
+
+  <br><br>
 
   <button (click)="register()">Register</button>
 
