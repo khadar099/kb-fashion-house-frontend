@@ -8,14 +8,14 @@ import { ApiService } from '../../services/api.service';
 })
 export class LoginComponent {
 
-  email: string = '';
+  emailOrMobile: string = '';   // ✅ MUST EXIST
   password: string = '';
 
   constructor(private api: ApiService) {}
 
   login() {
     const request = {
-      email: this.email,
+      emailOrMobile: this.emailOrMobile,   // ✅ MATCH API SERVICE
       password: this.password
     };
 
@@ -25,7 +25,7 @@ export class LoginComponent {
         console.log(res);
       },
       error: (err) => {
-        alert('Invalid credentials');
+        alert('Login failed');
         console.log(err);
       }
     });
