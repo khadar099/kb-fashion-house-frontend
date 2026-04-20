@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -22,14 +25,8 @@ export class RegisterComponent {
     };
 
     this.api.register(request).subscribe({
-      next: (res) => {
-        alert('Registered successfully');
-        console.log(res);
-      },
-      error: (err) => {
-        alert('Registration failed');
-        console.log(err);
-      }
+      next: () => alert('Registered successfully'),
+      error: () => alert('Registration failed')
     });
   }
 }
