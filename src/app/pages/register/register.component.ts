@@ -13,11 +13,15 @@ import { ApiService } from '../../services/api.service';
 })
 export class RegisterComponent {
 
-  emailOrMobile = '';
+  email = '';
+  mobile = '';
   password = '';
   confirmPassword = '';
 
-  constructor(private api: ApiService, private router: Router) {}
+  constructor(
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   register() {
 
@@ -26,15 +30,21 @@ export class RegisterComponent {
       return;
     }
 
-    this.api.register({
-      emailOrMobile: this.emailOrMobile,
+    const payload = {
+      email: this.email,
+      mobile: this.mobile,
       password: this.password
-    }).subscribe({
+    };
+
+    this.api.register(payload).subscribe({
       next: () => {
-        alert('Registered successfully');
+        alert('User registered successfully');
         this.router.navigate(['/login']);
       },
-      error: () => alert('Registration failed')
+      error: (err) => {
+        console.log(err);
+        alert('Registration failed');
+      }
     });
   }
 }
