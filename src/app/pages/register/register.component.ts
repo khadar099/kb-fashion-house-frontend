@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -13,10 +17,7 @@ export class RegisterComponent {
   password = '';
   confirmPassword = '';
 
-  constructor(
-    private api: ApiService,
-    private router: Router
-  ) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   register() {
 
@@ -30,13 +31,10 @@ export class RegisterComponent {
       password: this.password
     }).subscribe({
       next: () => {
-        alert('Registration successful');
+        alert('Registered successfully');
         this.router.navigate(['/login']);
       },
-      error: (err) => {
-        console.log(err);
-        alert('Registration failed');
-      }
+      error: () => alert('Registration failed')
     });
   }
 }
